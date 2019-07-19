@@ -32,7 +32,7 @@ class Main extends Component {
             <div className="margin-nav">
 
             <li className="font-size-nav"><Icon small className="icon">
-            event_available</Icon><NavLink className="color-white-nav" to="/home" >Home</NavLink></li>
+            input</Icon><NavLink className="color-white-nav" to="/home" >Home</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
             date_range</Icon><NavLink to="/stuff" className="color-white-nav">Crear un Evento</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
