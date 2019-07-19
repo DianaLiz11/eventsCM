@@ -41,11 +41,11 @@ class Main extends Component {
           <ul className="header margin nav-width">
           <div className="color-black">
             <div className="alto">
-             <p className="color-white color-blue-strong margin padding-nav">Events CM</p>
+             <p className="color-white color-blue-strong margin padding-nav font-size-nav">Events CM</p>
             </div>
             <div className="margin-nav">
-            <li ><NavLink to="/stuff" >Crear un Evento</NavLink></li>
-            <li ><NavLink to="/contact" >Eventos Creados</NavLink></li>
+            <li className="font-size-nav"><NavLink to="/stuff" >Crear un Evento</NavLink></li>
+            <li className="font-size-nav"><NavLink to="/contact" >Eventos Creados</NavLink></li>
             </div>
             </div>
           </ul>

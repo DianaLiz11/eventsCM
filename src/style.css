@@ -32,7 +32,7 @@
 
 .color-black{
     background:#222d32;
-    height:100vh;
+    height:100%;
 }
 .color-white{
     color:white;
@@ -66,12 +66,19 @@
 }
 
 .nav-width{
-    width:30%;
+    width:20%;
     
 }
 .nav-width-rigth{
-    width:70%;
+    width:80%;
     
+}
+
+.font-size-nav{
+    font-size: 1.5vw;
+    padding: 3%;
+
+
 }
 
 
