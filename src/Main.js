@@ -3,10 +3,11 @@ import {
   Route,
   NavLink,
   BrowserRouter,
-
+  
 } from "react-router-dom";
+import {Icon} from 'react-materialize';
 // import Theme from '@material-ui/core/styles';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+//import { createStyles, makeStyles } from '@material-ui/core/styles';
 // import Drawer from '@material-ui/core/Drawer';
 import {AppContextProvider, AppContext} from "./AppContext";
 import Stuff from "./Stuff";
@@ -44,8 +45,8 @@ class Main extends Component {
              <p className="color-white color-blue-strong margin padding-nav font-size-nav">Events CM</p>
             </div>
             <div className="margin-nav">
-            <li className="font-size-nav"><NavLink to="/stuff" >Crear un Evento</NavLink></li>
-            <li className="font-size-nav"><NavLink to="/contact" >Eventos Creados</NavLink></li>
+            <li className="font-size-nav"><NavLink to="/stuff" ><Icon small>date_range</Icon>Crear un Evento</NavLink></li>
+            <li className="font-size-nav"><NavLink to="/contact" ><Icon small>event_available</Icon>Eventos Creados</NavLink></li>
             </div>
             </div>
           </ul>

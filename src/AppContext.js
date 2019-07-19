@@ -6,13 +6,18 @@ export const AppContext = React.createContext()
     constructor(props) {
       super(props);
       this.state = {
-          newSales: '',
-          sales:'',
-          users:'',
-          visit:'',
-          date:'',
-          
-          
+        banner:'', 
+        title:'', 
+        description:'', 
+        schedule:'', 
+        prerequirements:'', 
+        latitude:'', 
+        longitude:'', 
+        date:'', 
+        time:'', 
+        capacity:'',
+        listEvents: []
+                   
         };
   
       this.handleChange = this.handleChange.bind(this);
@@ -23,38 +28,98 @@ export const AppContext = React.createContext()
       
       
       this.setState({[event.target.name]: event.target.value});
-
+      
     }
     handleFormSubmit = (event) => {
-      const { newSales,sales, users, visit, date } = this.state;
-      if(newSales && sales && users && visit && date !== ""){
-      localStorage.setItem('newSales', newSales);
-      localStorage.setItem('sales', sales);
-      localStorage.setItem('users', users);
-      localStorage.setItem('visit', visit);
-      localStorage.setItem('date', date);
       event.preventDefault();
-      }else{
-        alert("llena todos los campos")
-      }
-    };
+      const { banner, title, description, schedule, prerequirements, latitude, longitude, date, time, capacity } = this.state;
+      if(banner && title && description && schedule && prerequirements && latitude && longitude && date && time && capacity !== ""){
+        // localStorage.setItem('banner', banner);
+        // localStorage.setItem('title', title);
+        // localStorage.setItem('description', description);
+        // localStorage.setItem('schedule', schedule);
+        // localStorage.setItem('prerequirements', prerequirements);
+        // localStorage.setItem('latitude', latitude);
+        // localStorage.setItem('longitude', longitude);
+        // localStorage.setItem('date', date);
+        // localStorage.setItem('time', time);
+        // localStorage.setItem('capacity', capacity);
+        
+        let eventsubmit = {
+          banner: banner,
+          name: title,
+          description: description,
+          prerequisites: prerequirements,
+          address: "una direccion cualquiera",
+          eventDate: date,
+          eventHour: time,
+          capacity: capacity,
+          link: "https://serverless.com/framework/docs/providers/aws/guide/quick-start/"
+        };
+  
+        
+            
+            console.log(JSON.stringify(eventsubmit))
+            
+            
+            fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+              },    
+              body: JSON.stringify(eventsubmit)
+            })
+            .then(response => console.log('Success:', response))
+            .catch(error => console.error('Error:', error));
+            
 
-    componentDidMount() {
-      const newSales = localStorage.getItem('newSales');
-      const sales = newSales ? localStorage.getItem('sales') : '';
-      this.setState({newSales,sales}); 
+            // fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
+            //   method: 'POST',
+            //   headers: {
+            //     'Accept': 'application/json',
+            //     'Content-Type': 'application/json'
+            //   },
+            //   body: JSON.stringify(eventsubmit)
+            // });
+            
+          }else{
+            alert("Es necesario llenar todos los campos para completar el registro")
+          }
+        };
+        
+        // componentDidMount() {
+    //   const newSales = localStorage.getItem('newSales');
+    //   const sales = newSales ? localStorage.getItem('sales') : '';
+    //   this.setState({newSales,sales}); 
+    // }
+
+    componentWillMount() {
+      fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/list-events')
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          console.log(JSON.stringify(data.Items))
+          this.setState({ listEvents: JSON.stringify(data.Items) })
+         
+        })
     }
-
   
     render() {
       return (
         <AppContext.Provider
         value={{
-          sales:this.state.sales,
-          newSales: this.state.newSales,
-          users: this.state.users,
-          visit: this.state.visit,
-          date:this.state.date,
+          banner:this.state.banner,
+          title: this.state.title,
+          description: this.state.description,
+          schedule: this.state.schedule,
+          prerequirements:this.state.prerequirements,
+          latitude:this.state.latitude,
+          longitude: this.state.longitude,
+          date: this.state.date,
+          time: this.state.time,
+          capacity:this.state.capacity,
           handleChange: this.handleChange,
           handleFormSubmit: this.handleFormSubmit ,
 

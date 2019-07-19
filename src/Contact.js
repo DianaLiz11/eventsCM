@@ -9,7 +9,6 @@ class Contact extends Component {
       <div className="col s12 m7">
         <div className="card">
           <div className="card-image">
-            {/* <img src="images/sample-1.jpg" alt=""> */}
             <span className="card-title">Card Title</span>
           </div>
           <div className="card-content">
