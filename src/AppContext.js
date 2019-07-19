@@ -6,6 +6,7 @@ export const AppContext = React.createContext()
     constructor(props) {
       super(props);
       this.state = {
+      
         banner:'', 
         title:'', 
         description:'', 
@@ -19,11 +20,28 @@ export const AppContext = React.createContext()
         capacity:'',
         listEvents: []
                    
+
         };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
       this.cleanBox = this.cleanBox.bind(this);
+      }
+        componentDidMount(){
+    
+          fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/list-events')
+          .then(res => res.json())
+          .then(json => {
+            
+              this.setState({
+                item: json.Items,                
+              })
+              
+              
+          })
+          
+          
+    
       }
   
     handleChange = (event) =>  {
@@ -78,8 +96,7 @@ export const AppContext = React.createContext()
         
             
             console.log(JSON.stringify(eventsubmit))
-            
-            
+
             fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
               method: 'POST',
               headers: {
@@ -92,6 +109,7 @@ export const AppContext = React.createContext()
               console.log('Success:', response)
             })
             .catch(error => console.error('Error:', error));
+<<<<<<< HEAD
             
             this.cleanBox();
             
@@ -106,16 +124,12 @@ export const AppContext = React.createContext()
                 
           }else{
             alert("Es necesario llenar todos los campos para completar el registro")
+=======
+>>>>>>> upstream/master
           }
-        };
-        
-        // componentDidMount() {
-    //   const newSales = localStorage.getItem('newSales');
-    //   const sales = newSales ? localStorage.getItem('sales') : '';
-    //   this.setState({newSales,sales}); 
-    // }
+        }
 
-    componentWillMount() {
+    componentWillMount(){
       fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/list-events')
         .then((response) => {
           return response.json()
@@ -144,6 +158,7 @@ export const AppContext = React.createContext()
           capacity:this.state.capacity,
           handleChange: this.handleChange,
           handleFormSubmit: this.handleFormSubmit ,
+          item: this.state.item,
 
         }}
         >

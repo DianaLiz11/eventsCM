@@ -5,36 +5,21 @@ import {
   BrowserRouter,
   
 } from "react-router-dom";
-import {Icon} from 'react-materialize';
-// import Theme from '@material-ui/core/styles';
-//import { createStyles, makeStyles } from '@material-ui/core/styles';
-// import Drawer from '@material-ui/core/Drawer';
+
+
+
 import {AppContextProvider, AppContext} from "./AppContext";
 import Stuff from "./Stuff";
 import Contact from "./Contact";
-
+import Home from "./Home"
+import {Icon} from 'react-materialize'
 
 Stuff.contextType = AppContext;
 Contact.contextType= AppContext;
 
-// const drawerWidth = 240;
- 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     drawer: {
-//       width: drawerWidth,
-//       flexShrink: 0,
-//     },
-
-//     }),
-// );
-
 class Main extends Component {
   
   render() {
-    
-
-
     return (
       <AppContextProvider>
         <BrowserRouter>
@@ -45,17 +30,25 @@ class Main extends Component {
              <p className="color-white color-blue-strong margin padding-nav font-size-nav">Events CM</p>
             </div>
             <div className="margin-nav">
-            <li className="font-size-nav"><NavLink to="/stuff" ><Icon small>date_range</Icon>Crear un Evento</NavLink></li>
-            <li className="font-size-nav"><NavLink to="/contact" ><Icon small>event_available</Icon>Eventos Creados</NavLink></li>
+
+            <li className="font-size-nav"><Icon small className="icon">
+            event_available</Icon><NavLink className="color-white-nav" to="/home" >Home</NavLink></li>
+            <li className="font-size-nav"><Icon small className="icon">
+            date_range</Icon><NavLink to="/stuff" className="color-white-nav">Crear un Evento</NavLink></li>
+            <li className="font-size-nav"><Icon small className="icon">
+            event_available</Icon><NavLink className="color-white-nav" to="/contact" >Eventos Creados</NavLink></li>
+
             </div>
             </div>
           </ul>
+
          
           <div className="content nav-width-rigth">
-          <p className="color-blue color-blue-back margin alto-dash"></p>
-            
+          <p className="color-blue color-blue-back margin alto-dash">  <i class="material-icons">add</i></p>
+            <Route exact path="/home" component={Home}/>
             <Route path="/stuff" component={Stuff}/>
-            <Route exact path="/contact" component={Contact}/>
+            <Route  path="/contact" component={Contact}/>
+            
           </div>
         
         </BrowserRouter>
