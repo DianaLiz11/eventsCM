@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class Contact extends Component {
   
   render() {
-    const {newSales, sales, users, visit} = this.context
+    // const {newSales, sales, users, visit} = this.context
     return (
-      <div className="row ">
+      <div className="row dashboard">
       <div className="col s12 m7">
         <div className="card">
           <div className="card-image">

@@ -5,36 +5,52 @@ import {
   BrowserRouter,
 
 } from "react-router-dom";
-
-import Drawer from '@material-ui/core/Drawer';
+// import Theme from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+// import Drawer from '@material-ui/core/Drawer';
 import {AppContextProvider, AppContext} from "./AppContext";
 import Stuff from "./Stuff";
 import Contact from "./Contact";
 
 
 Stuff.contextType = AppContext;
-Contact.contextType= AppContext
+Contact.contextType= AppContext;
+
+// const drawerWidth = 240;
  
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     drawer: {
+//       width: drawerWidth,
+//       flexShrink: 0,
+//     },
+
+//     }),
+// );
+
 class Main extends Component {
+  
   render() {
+    
+
+
     return (
       <AppContextProvider>
         <BrowserRouter>
-        <Drawer
-        variant="permanent"
-        anchor="left"
-      >   
-          <ul className="header margin ">
+
+          <ul className="header margin nav-width">
           <div className="color-black">
             <div className="alto">
-             <p className="color-white color-blue-strong margin">e-Ventas</p>
+             <p className="color-white color-blue-strong margin padding-nav">Events CM</p>
             </div>
-            <li><NavLink to="/stuff">Datos</NavLink></li>
-            <li><NavLink to="/contact">Estadisticas</NavLink></li>
+            <div className="margin-nav">
+            <li ><NavLink to="/stuff" >Crear un Evento</NavLink></li>
+            <li ><NavLink to="/contact" >Eventos Creados</NavLink></li>
+            </div>
             </div>
           </ul>
-          </Drawer>
-          <div className="content">
+         
+          <div className="content nav-width-rigth">
           <p className="color-blue color-blue-back margin alto-dash"></p>
             
             <Route path="/stuff" component={Stuff}/>
