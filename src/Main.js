@@ -32,7 +32,7 @@ class Main extends Component {
             <div className="margin-nav">
 
             <li className="font-size-nav"><Icon small className="icon">
-            input</Icon><NavLink className="color-white-nav" to="/home" >Home</NavLink></li>
+            input</Icon><NavLink className="color-white-nav" to="/" >Home</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
             date_range</Icon><NavLink to="/stuff" className="color-white-nav">Crear un Evento</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
@@ -45,7 +45,7 @@ class Main extends Component {
          
           <div className="content nav-width-rigth">
           <p className="color-blue color-blue-back margin alto-dash">  <i class="material-icons">add</i></p>
-            <Route exact path="/home" component={Home}/>
+            <Route exact path="/" component={Home}/>
             <Route path="/stuff" component={Stuff}/>
             <Route  path="/contact" component={Contact}/>
             
