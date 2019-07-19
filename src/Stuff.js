@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import style from './style.css';
+
 
 
 
@@ -9,6 +11,7 @@ import style from './style.css';
 
 		const {banner, title, description, schedule, prerequirements, latitude, longitude, date, time, capacity, handleChange, handleFormSubmit} = this.context
 		return(
+
 			<div className="container">
 				<form className="col s12 m12" onSubmit={handleFormSubmit}>
 					<h4>Registro de Eventos</h4>
@@ -70,6 +73,7 @@ import style from './style.css';
 					<input  className="waves-effect waves-light btn" type="submit" value="Submit" />
 				</form>
 			</div>
+
 		);
 	}
 }
