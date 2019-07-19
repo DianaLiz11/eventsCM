@@ -71,16 +71,7 @@ export const AppContext = React.createContext()
       event.preventDefault();
       const { banner, title, description, schedule, prerequirements, address, latitude, longitude, date, time, capacity } = this.state;
       if(banner && title && description && schedule && prerequirements && latitude && longitude && date && time && capacity !== ""){
-        // localStorage.setItem('banner', banner);
-        // localStorage.setItem('title', title);
-        // localStorage.setItem('description', description);
-        // localStorage.setItem('schedule', schedule);
-        // localStorage.setItem('prerequirements', prerequirements);
-        // localStorage.setItem('latitude', latitude);
-        // localStorage.setItem('longitude', longitude);
-        // localStorage.setItem('date', date);
-        // localStorage.setItem('time', time);
-        // localStorage.setItem('capacity', capacity);
+
         
         let eventsubmit = {
           name: title,
@@ -109,23 +100,13 @@ export const AppContext = React.createContext()
               console.log('Success:', response)
             })
             .catch(error => console.error('Error:', error));
-<<<<<<< HEAD
             
             this.cleanBox();
             
-            // fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
-              //   method: 'POST',
-              //   headers: {
-                //     'Accept': 'application/json',
-                //     'Content-Type': 'application/json'
-                //   },
-                //   body: JSON.stringify(eventsubmit)
-                // });
+
                 
           }else{
             alert("Es necesario llenar todos los campos para completar el registro")
-=======
->>>>>>> upstream/master
           }
         }
 
