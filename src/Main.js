@@ -3,8 +3,11 @@ import {
   Route,
   NavLink,
   BrowserRouter,
-
+  
 } from "react-router-dom";
+
+import {Icon} from 'react-materialize';
+
 import {AppContextProvider, AppContext} from "./AppContext";
 import Stuff from "./Stuff";
 import Contact from "./Contact";
@@ -27,12 +30,14 @@ class Main extends Component {
              <p className="color-white color-blue-strong margin padding-nav font-size-nav">Events CM</p>
             </div>
             <div className="margin-nav">
+
             <li className="font-size-nav"><Icon small className="icon">
             event_available</Icon><NavLink className="color-white-nav" to="/home" >Home</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
             date_range</Icon><NavLink to="/stuff" className="color-white-nav">Crear un Evento</NavLink></li>
             <li className="font-size-nav"><Icon small className="icon">
             event_available</Icon><NavLink className="color-white-nav" to="/contact" >Eventos Creados</NavLink></li>
+
             </div>
             </div>
           </ul>

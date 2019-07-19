@@ -11,6 +11,7 @@ class Contact extends Component {
 
     
     return (
+
       <div className="container">
           
          {
@@ -42,6 +43,7 @@ class Contact extends Component {
 
     
          </div>
+
       
     );
   }

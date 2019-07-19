@@ -50,7 +50,9 @@
 .alto-dash{
     height: 3.7em;
     background:#367ea9;
+
     z-index: 2;
+
     font-size: 1.5vw;
     position: sticky;
     top: 0px;
@@ -78,7 +80,6 @@
     width:80%;
     height: 100vh;
     overflow-y: scroll;
-    
 }
 
 .font-size-nav{
