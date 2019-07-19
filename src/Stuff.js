@@ -9,7 +9,7 @@ import style from './style.css';
 
 	 render() {
 
-		const {banner, title, description, schedule, prerequirements, latitude, longitude, date, time, capacity, handleChange, handleFormSubmit} = this.context
+		const {banner, title, description, schedule, prerequirements, address, latitude, longitude, date, time, capacity, handleChange, handleFormSubmit} = this.context
 		return(
 
 			<div className="container">
@@ -42,6 +42,12 @@ import style from './style.css';
 						</div>
 					</div>
 					<div className="row">
+						<div className="input-field col s12 m12">
+							<label>Dirección</label>
+							<textarea id="address" name="address" type="text" className="materialize-textarea" value={address} onChange={handleChange}></textarea>
+						</div>
+					</div>
+					<div className="row">
 						<div className="col s12 m12">
 							<h6>Ubicación:</h6>
 						</div>
@@ -70,7 +76,7 @@ import style from './style.css';
 							<input id="capacity" name="capacity" className="validate" type="number"  value={capacity} onChange={handleChange} />
 						</div>
 					</div>
-					<input  className="waves-effect waves-light btn" type="submit" value="Submit" />
+					<button  className="waves-effect waves-light btn" type="submit" >Enviar</button>
 				</form>
 			</div>
 
