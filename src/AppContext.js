@@ -11,6 +11,7 @@ export const AppContext = React.createContext()
         description:'', 
         schedule:'', 
         prerequirements:'', 
+        address:'',
         latitude:'', 
         longitude:'', 
         date:'', 
@@ -22,6 +23,7 @@ export const AppContext = React.createContext()
   
       this.handleChange = this.handleChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
+      this.cleanBox = this.cleanBox.bind(this);
       }
   
     handleChange = (event) =>  {
@@ -30,9 +32,26 @@ export const AppContext = React.createContext()
       this.setState({[event.target.name]: event.target.value});
       
     }
+
+    cleanBox = () => {
+      this.setState({
+        banner:'', 
+        title:'', 
+        description:'', 
+        schedule:'', 
+        prerequirements:'', 
+        address:'',
+        latitude:'', 
+        longitude:'', 
+        date:'', 
+        time:'', 
+        capacity:'',
+      });
+    }
+
     handleFormSubmit = (event) => {
       event.preventDefault();
-      const { banner, title, description, schedule, prerequirements, latitude, longitude, date, time, capacity } = this.state;
+      const { banner, title, description, schedule, prerequirements, address, latitude, longitude, date, time, capacity } = this.state;
       if(banner && title && description && schedule && prerequirements && latitude && longitude && date && time && capacity !== ""){
         // localStorage.setItem('banner', banner);
         // localStorage.setItem('title', title);
@@ -46,15 +65,14 @@ export const AppContext = React.createContext()
         // localStorage.setItem('capacity', capacity);
         
         let eventsubmit = {
-          banner: banner,
           name: title,
           description: description,
           prerequisites: prerequirements,
-          address: "una direccion cualquiera",
+          address: address,
           eventDate: date,
           eventHour: time,
           capacity: capacity,
-          link: "https://serverless.com/framework/docs/providers/aws/guide/quick-start/"
+          link: banner
         };
   
         
@@ -70,19 +88,22 @@ export const AppContext = React.createContext()
               },    
               body: JSON.stringify(eventsubmit)
             })
-            .then(response => console.log('Success:', response))
+            .then(response => ()=>{
+              console.log('Success:', response)
+            })
             .catch(error => console.error('Error:', error));
             
-
-            // fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
-            //   method: 'POST',
-            //   headers: {
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json'
-            //   },
-            //   body: JSON.stringify(eventsubmit)
-            // });
+            this.cleanBox();
             
+            // fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
+              //   method: 'POST',
+              //   headers: {
+                //     'Accept': 'application/json',
+                //     'Content-Type': 'application/json'
+                //   },
+                //   body: JSON.stringify(eventsubmit)
+                // });
+                
           }else{
             alert("Es necesario llenar todos los campos para completar el registro")
           }
@@ -115,6 +136,7 @@ export const AppContext = React.createContext()
           description: this.state.description,
           schedule: this.state.schedule,
           prerequirements:this.state.prerequirements,
+          address: this.state.address,
           latitude:this.state.latitude,
           longitude: this.state.longitude,
           date: this.state.date,
