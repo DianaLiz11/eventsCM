@@ -1,27 +1,47 @@
-import React, { Component } from "react";
+import React, { Component ,Fragment} from "react";
+
+
  
 class Contact extends Component {
   
   render() {
-    // const {newSales, sales, users, visit} = this.context
+    const {item} = this.context ;
+    console.log(item)
+   
+
+    
     return (
-      <div className="row dashboard">
-      <div className="col s12 m7">
-        <div className="card">
-          <div className="card-image">
-            {/* <img src="images/sample-1.jpg" alt=""> */}
-            <span className="card-title">Card Title</span>
-          </div>
-          <div className="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div className="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-    </div> 
+      <div className="container">
+          
+         {
+           
+           item.map((number)=>
+           <div class="row">
+           <div class="col s12 m7">
+             <div class="card">
+               <div class="card-image">
+               <img src={number.link.S} className=""/>
+                 <span class="card-title">{number.name.S}</span>
+               </div>
+               <div class="card-content">
+                 <p>Fecha: {number.eventDate.S}</p>
+                 <p>Hora: {number.eventHour.S}</p>
+               </div>
+               <div class="card-action">
+                 <a href="#">Editar</a>
+                 <a href="##">Eliminar</a>
+               </div>
+             </div>
+           </div>
+         </div>
+           
+           )
+
+             
+            }
+
+    
+         </div>
       
     );
   }

@@ -11,12 +11,29 @@ export const AppContext = React.createContext()
           users:'',
           visit:'',
           date:'',
+          item:[],
           
           
         };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
+      }
+        componentDidMount(){
+    
+          fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/list-events')
+          .then(res => res.json())
+          .then(json => {
+            
+              this.setState({
+                item: json.Items,                
+              })
+              
+              
+          })
+          
+          
+    
       }
   
     handleChange = (event) =>  {
@@ -39,11 +56,11 @@ export const AppContext = React.createContext()
       }
     };
 
-    componentDidMount() {
-      const newSales = localStorage.getItem('newSales');
-      const sales = newSales ? localStorage.getItem('sales') : '';
-      this.setState({newSales,sales}); 
-    }
+    // componentDidMount() {
+    //   const newSales = localStorage.getItem('newSales');
+    //   const sales = newSales ? localStorage.getItem('sales') : '';
+    //   this.setState({newSales,sales}); 
+    // }
 
   
     render() {
@@ -57,6 +74,7 @@ export const AppContext = React.createContext()
           date:this.state.date,
           handleChange: this.handleChange,
           handleFormSubmit: this.handleFormSubmit ,
+          item: this.state.item,
 
         }}
         >

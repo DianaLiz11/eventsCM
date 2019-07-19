@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import style from './style.css'
-
+import {DatePicker} from 'react-materialize';
+import {TimePicker} from 'react-materialize';
+import {Icon} from 'react-materialize'
  class Stuff extends Component {
 
 	render() {
@@ -15,10 +17,14 @@ import style from './style.css'
 			  Titulo
 			  <input id="titulo" name="sales" type="text"  value={sales} onChange={handleChange} />
 			</label>
+			<DatePicker/>
+			<TimePicker/>
+			
 			<label for="descripcion">
 			  Descripción
 			  <input id="descripcion" name="users" type="text"  value={users} onChange={handleChange} />
 			</label>
+		
 			<label for="agenda">
 			  Agenda
 				<input id="agenda" name="visit" type="text"  value={visit} onChange={handleChange} />
