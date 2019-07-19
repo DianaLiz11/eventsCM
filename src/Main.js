@@ -6,7 +6,7 @@ import {
   
 } from "react-router-dom";
 
-import {Icon} from 'react-materialize';
+
 
 import {AppContextProvider, AppContext} from "./AppContext";
 import Stuff from "./Stuff";

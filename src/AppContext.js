@@ -78,8 +78,7 @@ export const AppContext = React.createContext()
         
             
             console.log(JSON.stringify(eventsubmit))
-            
-            
+
             fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/create-event', {
               method: 'POST',
               headers: {
@@ -90,11 +89,10 @@ export const AppContext = React.createContext()
             })
             .then(response => console.log('Success:', response))
             .catch(error => console.error('Error:', error));
-            
+          }
+        }
 
-
-
-    componentWillMount() {
+    componentWillMount(){
       fetch('https://0nwyn7vvaa.execute-api.us-east-1.amazonaws.com/dev/list-events')
         .then((response) => {
           return response.json()

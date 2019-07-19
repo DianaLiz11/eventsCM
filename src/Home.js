@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Carousel} from 'react-materialize'
+
 
  
 class Home extends Component {
